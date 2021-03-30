@@ -25,14 +25,22 @@ class Language
     private Name $name;
 
     /**
+     *
+     * @ORM\Column(type="language_language_new_field")
+     */
+    private NewField $newField;
+
+    /**
      * Language constructor.
      * @param int $id
      * @param Name $name
+     * @param NewField $newField
      */
-    public function __construct(int $id, Name $name)
+    public function __construct(int $id, Name $name, NewField $newField)
     {
         $this->id = $id;
         $this->name = $name;
+        $this->newField = $newField;
     }
 
     /**
@@ -51,10 +59,24 @@ class Language
         return $this->name;
     }
 
-    public function update(?Name $name)
+    /**
+     * @return NewField
+     */
+    public function getNewField() : NewField
+    {
+        return $this->newField;
+    }
+
+    public function update(?Name $name, ?NewField $newField)
     {
         if ($name) {
             $this->name = $name;
         }
+
+        if($newField)
+        {
+            $this->newField = $newField;
+        }
+
     }
 }

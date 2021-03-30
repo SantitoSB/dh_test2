@@ -23,7 +23,8 @@ use Psr\Http\Message\ServerRequestInterface;
  *          @OA\MediaType(
  *              mediaType="application/json",
  *              @OA\Schema(
- *                  @OA\Property(property="name", type="string")
+ *                  @OA\Property(property="name", type="string"),
+ *                  @OA\Property(property="new_field", type="integer")
  *              ),
  *          ),
  *     ),
@@ -32,7 +33,8 @@ use Psr\Http\Message\ServerRequestInterface;
  *          @OA\MediaType(
  *              mediaType="application/json",
  *              @OA\Schema(
- *                  @OA\Property(property="name", type="string")
+ *                  @OA\Property(property="name", type="string"),
+ *                  @OA\Property(property="new_field", type="integer")
  *              ),
  *          ),
  *     )
@@ -42,7 +44,9 @@ class UpdateAction extends AbstractLanguageAction
 {
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
+
         $command = $this->deserialize($request);
+
 
         /** @var Language $result */
         $result = $this->bus->handle($command);
@@ -57,7 +61,8 @@ class UpdateAction extends AbstractLanguageAction
 
         return new Command(
             (int)$this->resolveArg('id'),
-            $paramsExtractor->getString('name')
+            $paramsExtractor->getString('name'),
+            $paramsExtractor->getInt('new_field')
         );
     }
 }

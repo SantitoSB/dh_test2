@@ -9,6 +9,7 @@ use App\Data\Flusher;
 use App\Language\Model\Language\Code;
 use App\Language\Model\Language\Language;
 use App\Language\Model\Language\Name;
+use App\Language\Model\Language\NewField;
 use App\Language\Repository\LanguageRepository;
 
 /**
@@ -26,11 +27,13 @@ class Creator
     }
 
     public function create(
-        Name $name
+        Name $name,
+        NewField $newField
     ): Language {
         $language = new Language(
             1,
-            $name
+            $name,
+            $newField
         );
 
         $this->languageRepository->add($language);

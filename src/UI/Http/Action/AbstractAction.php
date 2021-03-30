@@ -36,6 +36,8 @@ abstract class AbstractAction
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+
+
         $this->request = $request;
         $this->response = $response;
         $this->args = $args;

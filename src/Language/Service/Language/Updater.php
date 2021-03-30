@@ -9,6 +9,7 @@ use App\Data\Flusher;
 use App\Language\Model\Language\Code;
 use App\Language\Model\Language\Language;
 use App\Language\Model\Language\Name;
+use App\Language\Model\Language\NewField;
 use App\Language\Repository\LanguageRepository;
 
 /**
@@ -25,10 +26,11 @@ class Updater
 
     public function update(
         Language $language,
-        ?Name $name
+        ?Name $name,
+        ?NewField $newField
     ): Language {
 
-        $language->update($name);
+        $language->update($name, $newField);
 
         $this->flusher->flush();
 

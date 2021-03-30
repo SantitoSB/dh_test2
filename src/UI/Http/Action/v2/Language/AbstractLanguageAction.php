@@ -17,7 +17,8 @@ abstract class AbstractLanguageAction extends AbstractAction
         $serializer = $this->serializer;
         return [
             'id' => $model->getId(),
-            'name' => $serializer->asString($model->getName())
+            'name' => $serializer->asString($model->getName()),
+            'new_field' => $serializer->asInt($model->getNewField())
         ];
     }
 

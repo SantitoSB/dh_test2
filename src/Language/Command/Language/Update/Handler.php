@@ -6,6 +6,7 @@ namespace App\Language\Command\Language\Update;
 
 use App\Language\Model\Language\Language;
 use App\Language\Model\Language\Name;
+use App\Language\Model\Language\NewField;
 use App\Language\Repository\LanguageRepository;
 use App\Language\Service\Language\Updater;
 
@@ -29,7 +30,8 @@ class Handler
 
         return $this->updater->update(
             $language,
-            new Name($command->getName())
+            new Name($command->getName()),
+            new NewField($command->getNewField())
         );
     }
 }

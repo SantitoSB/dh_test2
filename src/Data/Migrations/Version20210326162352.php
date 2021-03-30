@@ -22,7 +22,8 @@ final class Version20210326162352 extends AbstractMigration
         $this->addSql('
             CREATE TABLE language (
                 id INT PRIMARY KEY,
-                name VARCHAR(255)
+                name VARCHAR(255),
+                new_field INT 
             )
         ');
     }

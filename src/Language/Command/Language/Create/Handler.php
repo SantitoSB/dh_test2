@@ -6,6 +6,7 @@ namespace App\Language\Command\Language\Create;
 
 use App\Language\Model\Language\Language;
 use App\Language\Model\Language\Name;
+use App\Language\Model\Language\NewField;
 use App\Language\Service\Language\Creator;
 
 /**
@@ -23,7 +24,8 @@ class Handler
     public function handle(Command $command): Language
     {
         return $this->creator->create(
-            new Name($command->getName())
+            new Name($command->getName()),
+            new NewField($command->getNewField())
         );
     }
 }

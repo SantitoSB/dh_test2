@@ -11,16 +11,19 @@ class Command
 {
     private int $id;
     private string $name;
+    private int $newField;
 
     /**
      * Command constructor.
      * @param int $id
      * @param string $name
+     * @param int $newField
      */
-    public function __construct(int $id, string $name)
+    public function __construct(int $id, string $name, int $newField)
     {
         $this->id = $id;
         $this->name = $name;
+        $this->newField = $newField;
     }
 
     /**
@@ -37,6 +40,14 @@ class Command
     public function getName(): string
     {
         return $this->name;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNewField() : int
+    {
+        return $this->newField;
     }
 
 }

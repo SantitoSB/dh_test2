@@ -35,6 +35,7 @@ return [
 
             Type\Language\LanguageNameType::class,
             Type\Language\LanguageCodeType::class,
+            Type\Language\LanguageNewFieldType::class
         ];
 
         foreach ($types as $class) {

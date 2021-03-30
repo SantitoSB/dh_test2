@@ -11,6 +11,7 @@ return static function (App $app): void {
         return $response;
     });
 
+
     $app->get('/v2', ActionV2\IndexAction::class);
 
     $app->get('/api/v2/doc', ActionV2\SwaggerAction::class);

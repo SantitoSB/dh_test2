@@ -32,13 +32,15 @@ class LanguageRepository extends AbstractRepository
     public function get(int $id): Language
     {
         /** @var Language|null $model */
-        $model = $this->entityRepository->find($id);
+        $model = $this->entityRepository->findOneBy(['id'=>$id]);
+
 
         return $model;
     }
 
     public function delete(int $id)
     {
+
         $model = $this->get($id);
         $this->entityManager->remove($model);
     }

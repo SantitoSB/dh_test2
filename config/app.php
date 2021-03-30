@@ -19,8 +19,8 @@ return static function (ContainerInterface $container): App {
     $displayErrorDetails = $container->get('settings')['displayErrorDetails'];
     $errorHandler = new ErrorHandler($app->getCallableResolver(), $app->getResponseFactory(), $logger);
 
-    //$shutdownHandler = new ShutdownHandler($request, $errorHandler, $displayErrorDetails);
-    //register_shutdown_function($shutdownHandler);
+//    $shutdownHandler = new ShutdownHandler($request, $errorHandler, $displayErrorDetails);
+//    register_shutdown_function($shutdownHandler);
 
     $app->addRoutingMiddleware();
 

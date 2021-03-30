@@ -22,7 +22,8 @@ use Psr\Http\Message\ServerRequestInterface;
  *          @OA\MediaType(
  *              mediaType="application/json",
  *              @OA\Schema(
- *                  @OA\Property(property="name", type="string")
+ *                  @OA\Property(property="name", type="string"),
+ *                  @OA\Property(property="new_field", type="integer")
  *              ),
  *          ),
  *     ),
@@ -31,7 +32,8 @@ use Psr\Http\Message\ServerRequestInterface;
  *          @OA\MediaType(
  *              mediaType="application/json",
  *              @OA\Schema(
- *                  @OA\Property(property="name", type="string")
+ *                  @OA\Property(property="name", type="string"),
+ *                  @OA\Property(property="new_field", type="integer")
  *              ),
  *          ),
  *     )
@@ -55,7 +57,8 @@ class CreateAction extends AbstractLanguageAction
         $paramsExtractor = new ParamsExtractor($request->getParsedBody() ?? []);
 
         return new Command(
-            $paramsExtractor->getString('name')
+            $paramsExtractor->getString('name'),
+            $paramsExtractor->getInt('new_field')
         );
     }
 }
